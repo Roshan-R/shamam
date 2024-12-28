@@ -1,0 +1,6 @@
+data/com.github.RoshanR.wazam.desktop.in.in
+data/com.github.RoshanR.wazam.gschema.xml.in
+data/com.github.RoshanR.wazam.metainfo.xml.in.in
+data/resources/ui/shortcuts.ui
+data/resources/ui/window.ui
+src/application.rs
