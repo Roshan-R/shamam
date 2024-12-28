@@ -1,6 +1,6 @@
-data/com.github.RoshanR.wazam.desktop.in.in
-data/com.github.RoshanR.wazam.gschema.xml.in
-data/com.github.RoshanR.wazam.metainfo.xml.in.in
+data/com.github.RoshanR.shamam.desktop.in.in
+data/com.github.RoshanR.shamam.gschema.xml.in
+data/com.github.RoshanR.shamam.metainfo.xml.in.in
 data/resources/ui/shortcuts.blp
 data/resources/ui/window.blp
 src/application.rs

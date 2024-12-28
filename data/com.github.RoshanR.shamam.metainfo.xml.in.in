@@ -12,16 +12,16 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>https://gitlab.gnome.org/bilelmoussaoui/wazam/raw/master/data/resources/screenshots/screenshot1.png</image>
+      <image>https://gitlab.gnome.org/bilelmoussaoui/shamam/raw/master/data/resources/screenshots/screenshot1.png</image>
       <caption>Main window</caption>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://gitlab.gnome.org/bilelmoussaoui/wazam</url>
-  <url type="bugtracker">https://gitlab.gnome.org/bilelmoussaoui/wazam/issues</url>
+  <url type="homepage">https://gitlab.gnome.org/bilelmoussaoui/shamam</url>
+  <url type="bugtracker">https://gitlab.gnome.org/bilelmoussaoui/shamam/issues</url>
   <!-- Source code repository -->
-  <url type="vcs-browser">https://gitlab.gnome.org/bilelmoussaoui/wazam</url>
+  <url type="vcs-browser">https://gitlab.gnome.org/bilelmoussaoui/shamam</url>
   <!-- Translation repository -->
-  <url type="translate">https://gitlab.gnome.org/bilelmoussaoui/wazam/-/tree/master/po</url>
+  <url type="translate">https://gitlab.gnome.org/bilelmoussaoui/shamam/-/tree/master/po</url>
   <!-- Open Age Ratings Service:
        https://hughsie.github.io/oars/generate.html
   -->

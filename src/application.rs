@@ -104,7 +104,7 @@ impl ExampleApplication {
 
     fn setup_css(&self) {
         let provider = gtk::CssProvider::new();
-        provider.load_from_resource("/com/github/RoshanR/wazam/style.css");
+        provider.load_from_resource("/com/github/RoshanR/shamam/style.css");
         if let Some(display) = gdk::Display::default() {
             gtk::style_context_add_provider_for_display(
                 &display,
@@ -120,7 +120,7 @@ impl ExampleApplication {
             // Insert your license of choice here
             // .license_type(gtk::License::MitX11)
             // Insert your website here
-            // .website("https://gitlab.gnome.org/bilelmoussaoui/wazam/")
+            // .website("https://gitlab.gnome.org/bilelmoussaoui/shamam/")
             .version(VERSION)
             .transient_for(&self.main_window())
             .translator_credits(gettext("translator-credits"))
@@ -145,7 +145,7 @@ impl Default for ExampleApplication {
     fn default() -> Self {
         glib::Object::builder()
             .property("application-id", APP_ID)
-            .property("resource-base-path", "/com/github/RoshanR/wazam/")
+            .property("resource-base-path", "/com/github/RoshanR/shamam/")
             .build()
     }
 }

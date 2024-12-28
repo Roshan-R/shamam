@@ -2458,6 +2458,39 @@ dependencies = [
 ]
 
 [[package]]
+name = "shamam"
+version = "0.0.0"
+dependencies = [
+ "async-channel",
+ "base64 0.12.3",
+ "byteorder",
+ "chfft",
+ "chrono",
+ "clap",
+ "cpal",
+ "crc32fast",
+ "csv",
+ "gag",
+ "gdk-pixbuf",
+ "gettext-rs",
+ "gettext-sys",
+ "gtk4",
+ "hound",
+ "libadwaita",
+ "mpris-player",
+ "rand",
+ "regex",
+ "reqwest",
+ "rodio",
+ "serde",
+ "serde_json",
+ "tempfile",
+ "tracing",
+ "tracing-subscriber",
+ "uuid",
+]
+
+[[package]]
 name = "sharded-slab"
 version = "0.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3030,39 +3063,6 @@ name = "wasm-bindgen-shared"
 version = "0.2.99"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "943aab3fdaaa029a6e0271b35ea10b72b943135afe9bffca82384098ad0e06a6"
-
-[[package]]
-name = "wazam"
-version = "0.0.0"
-dependencies = [
- "async-channel",
- "base64 0.12.3",
- "byteorder",
- "chfft",
- "chrono",
- "clap",
- "cpal",
- "crc32fast",
- "csv",
- "gag",
- "gdk-pixbuf",
- "gettext-rs",
- "gettext-sys",
- "gtk4",
- "hound",
- "libadwaita",
- "mpris-player",
- "rand",
- "regex",
- "reqwest",
- "rodio",
- "serde",
- "serde_json",
- "tempfile",
- "tracing",
- "tracing-subscriber",
- "uuid",
-]
 
 [[package]]
 name = "web-sys"

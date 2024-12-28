@@ -8,10 +8,10 @@ flatpak:
   tags:
     - flatpak
   variables:
-    BUNDLE: "wazam-nightly.flatpak"
-    MANIFEST_PATH: "build-aux/com.github.RoshanR.wazam.Devel.json"
-    FLATPAK_MODULE: "wazam"
-    APP_ID: "com.github.RoshanR.wazam.Devel"
+    BUNDLE: "shamam-nightly.flatpak"
+    MANIFEST_PATH: "build-aux/com.github.RoshanR.shamam.Devel.json"
+    FLATPAK_MODULE: "shamam"
+    APP_ID: "com.github.RoshanR.shamam.Devel"
     RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
   script:
     - flatpak install --user --noninteractive flathub org.freedesktop.Sdk.Extension.llvm18//24.08

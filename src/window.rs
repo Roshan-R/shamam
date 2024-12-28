@@ -24,7 +24,7 @@ mod imp {
     use super::*;
 
     #[derive(Debug, gtk::CompositeTemplate)]
-    #[template(resource = "/com/github/RoshanR/wazam/ui/window.ui")]
+    #[template(resource = "/com/github/RoshanR/shamam/ui/window.ui")]
     pub struct ExampleApplicationWindow {
         #[template_child]
         pub welcome_page: TemplateChild<gtk::StackPage>,
