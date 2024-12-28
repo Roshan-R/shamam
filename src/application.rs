@@ -7,6 +7,7 @@ use gtk::{gdk, gio, glib};
 
 use crate::config::{APP_ID, PKGDATADIR, PROFILE, VERSION};
 use crate::window::ExampleApplicationWindow;
+use adw::subclass::prelude::AdwApplicationImpl;
 
 mod imp {
     use super::*;
@@ -22,7 +23,7 @@ mod imp {
     impl ObjectSubclass for ExampleApplication {
         const NAME: &'static str = "ExampleApplication";
         type Type = super::ExampleApplication;
-        type ParentType = gtk::Application;
+        type ParentType = adw::Application;
     }
 
     impl ObjectImpl for ExampleApplication {}
@@ -62,11 +63,12 @@ mod imp {
     }
 
     impl GtkApplicationImpl for ExampleApplication {}
+    impl AdwApplicationImpl for ExampleApplication {}
 }
 
 glib::wrapper! {
     pub struct ExampleApplication(ObjectSubclass<imp::ExampleApplication>)
-        @extends gio::Application, gtk::Application,
+        @extends gio::Application, adw::Application,
         @implements gio::ActionMap, gio::ActionGroup;
 }
 
@@ -96,8 +98,8 @@ impl ExampleApplication {
 
     // Sets up keyboard shortcuts
     fn setup_accels(&self) {
-        self.set_accels_for_action("app.quit", &["<Control>q"]);
-        self.set_accels_for_action("window.close", &["<Control>w"]);
+        // self.set_accels_for_action("app.quit", &["<Control>q"]);
+        // self.set_accels_for_action("window.close", &["<Control>w"]);
     }
 
     fn setup_css(&self) {

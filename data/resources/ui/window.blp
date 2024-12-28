@@ -1,0 +1,145 @@
+using Gtk 4.0;
+using Adw 1;
+
+menu primary_menu {
+  section {
+    item {
+      label: _("_Preferences");
+      action: "app.preferences";
+    }
+
+    item {
+      label: _("_Keyboard Shortcuts");
+      action: "win.show-help-overlay";
+    }
+
+    item {
+      label: _("_About Wazam");
+      action: "app.about";
+    }
+  }
+}
+
+template $ExampleApplicationWindow: Adw.ApplicationWindow {
+  Stack stack {
+    name: "stack";
+
+    StackPage welcome_page {
+      child: Box {
+        orientation: vertical;
+        valign: center;
+        halign: center;
+        margin-top: 10;
+        margin-bottom: 10;
+
+        Label {
+          label: _("Tap to Shazam");
+          margin-bottom: 30;
+
+          styles [
+            "title-1",
+          ]
+        }
+
+        Button button {
+          clicked => $on_button_clicked() swapped;
+
+          Image {
+            icon-name: "folder-music";
+            pixel-size: 196;
+            margin-top: 30;
+            margin-bottom: 30;
+
+            styles [
+              "icon-dropshadow",
+            ]
+          }
+        }
+      };
+    }
+
+    StackPage checking_page {
+      child: Box {
+        orientation: vertical;
+        valign: center;
+        halign: center;
+        margin-top: 10;
+        margin-bottom: 10;
+
+        Image {
+          icon-name: "folder-music";
+          pixel-size: 196;
+          margin-top: 30;
+          margin-bottom: 30;
+
+          styles [
+            "icon-dropshadow",
+          ]
+        }
+
+        Label {
+          label: _("Listening for music");
+          margin-bottom: 30;
+
+          styles [
+            "title-1",
+          ]
+        }
+
+        Label {
+          label: _("Make sure your device can hear the song clearly");
+          margin-bottom: 20;
+
+          styles [
+            "title-2",
+          ]
+        }
+      };
+    }
+
+    StackPage result_page {
+      child: Box {
+        orientation: vertical;
+        valign: center;
+        halign: center;
+        margin-top: 10;
+        margin-bottom: 10;
+
+        Box {
+          orientation: vertical;
+
+          Image result_image {
+            icon-name: "folder-symbolic";
+            pixel-size: 196;
+            margin-top: 30;
+            margin-bottom: 30;
+          }
+
+          Box {
+            orientation: vertical;
+            valign: start;
+
+            Label song_name {
+              label: "SongName";
+              halign: start;
+
+              styles [
+                "title-1",
+              ]
+            }
+
+            Label song_desc {
+              label: "SongDesc";
+              halign: start;
+
+              styles [
+                "title-2",
+              ]
+            }
+          }
+        }
+      };
+    }
+  }
+}
+

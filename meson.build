@@ -14,6 +14,7 @@ base_id = 'com.github.RoshanR.wazam'
 dependency('glib-2.0', version: '>= 2.66')
 dependency('gio-2.0', version: '>= 2.66')
 dependency('gtk4', version: '>= 4.0.0')
+dependency('libadwaita-1', version: '>= 1.6')
 
 find_program('glib-compile-resources')
 glib_compile_schemas = find_program('glib-compile-schemas')
@@ -67,5 +68,5 @@ subdir('src')
 gnome.post_install(
   gtk_update_icon_cache: true,
   glib_compile_schemas: true,
-  update_desktop_database: true,
+  #update_desktop_database: true,
 )
