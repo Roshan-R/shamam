@@ -19,7 +19,6 @@ use crate::glib::MainLoop;
 use adw::subclass::prelude::AdwApplicationWindowImpl;
 
 mod imp {
-    use crate::{main, utils};
 
     use super::*;
 
@@ -69,10 +68,9 @@ mod imp {
     #[gtk::template_callbacks]
     impl ExampleApplicationWindow {
         #[template_callback]
-        fn on_button_clicked(&self, button: &gtk::Button) {
+        fn on_button_clicked(&self, _button: &gtk::Button) {
             println!("Clicked me from a callback");
             self.stack.set_visible_child(&self.checking_page.child());
-            gtk::glib::MainContext::default().acquire().unwrap();
             let main_loop = Arc::new(MainLoop::new(None, false));
 
             //let (gui_tx, gui_rx) = glib::MainContext::channel(glib::PRIORITY_DEFAULT);
@@ -186,24 +184,12 @@ mod imp {
                 obj.add_css_class("devel");
             }
 
-            // Load latest window state
-            obj.load_window_size();
             self.stack.set_transition_duration(3000);
         }
     }
 
     impl WidgetImpl for ExampleApplicationWindow {}
-    impl WindowImpl for ExampleApplicationWindow {
-        // Save window state on delete event
-        fn close_request(&self) -> glib::Propagation {
-            if let Err(err) = self.obj().save_window_size() {
-                tracing::warn!("Failed to save window state, {}", &err);
-            }
-
-            // Pass close request on to the parent
-            self.parent_close_request()
-        }
-    }
+    impl WindowImpl for ExampleApplicationWindow {}
 
     impl ApplicationWindowImpl for ExampleApplicationWindow {}
     impl AdwApplicationWindowImpl for ExampleApplicationWindow {}
@@ -219,34 +205,4 @@ impl ExampleApplicationWindow {
     pub fn new(app: &ExampleApplication) -> Self {
         glib::Object::builder().property("application", app).build()
     }
-
-    fn save_window_size(&self) -> Result<(), glib::BoolError> {
-        let imp = self.imp();
-
-        let (width, height) = self.default_size();
-
-        imp.settings.set_int("window-width", width)?;
-        imp.settings.set_int("window-height", height)?;
-
-        imp.settings
-            .set_boolean("is-maximized", self.is_maximized())?;
-
-        Ok(())
-    }
-
-    fn load_window_size(&self) {
-        let imp = self.imp();
-
-        let width = imp.settings.int("window-width");
-        let height = imp.settings.int("window-height");
-        let is_maximized = imp.settings.boolean("is-maximized");
-
-        self.set_default_size(width, height);
-
-        if is_maximized {
-            self.maximize();
-        }
-    }
-
-    fn show_result(&mut self, song_name: String, song_desc: String) {}
 }

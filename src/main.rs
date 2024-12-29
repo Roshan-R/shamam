@@ -18,7 +18,6 @@ mod core {
 
 mod utils {
     pub mod ffmpeg_wrapper;
-    pub mod image;
     pub mod internationalization;
     pub mod mpris_player;
     pub mod thread;
