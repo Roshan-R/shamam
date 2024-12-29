@@ -1,0 +1,26 @@
+# Contributor: Roshan R Chandar <your-email@example.com>
+# Maintainer: Roshan R Chandar <your-email@example.com>
+pkgname=shamam
+pkgver=0.1
+pkgrel=0
+pkgdesc="Shazam for your linux phones."
+url="https://github.com/Roshan-R/shamam"
+arch="all"
+license="MIT"
+depends=""
+makedepends="meson ninja cargo"
+source="https://github.com/Roshan-R/shamam/archive/refs/tags/v$pkgver.zip"
+builddir="$srcdir/$pkgname-$pkgver"
+
+build() {
+    cd "$builddir"
+    meson setup build
+    meson compile -C build
+}
+
+package() {
+    cd "$builddir/build"
+    install -Dm755 shamam "$pkgdir/usr/bin/shamam"
+}
+
+sha512sums="78447f80e683d4b3ebcd1d7251fa10c3d6cb18bd5329808feccd9e9fbc2dd3ce9d61ba90a74fee69c4ceec8837783a4b8c50348d289a232d092b1282e669a165  v0.1.zip"
