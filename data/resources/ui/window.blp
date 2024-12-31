@@ -1,26 +1,10 @@
 using Gtk 4.0;
 using Adw 1;
 
-menu primary_menu {
-  section {
-    item {
-      label: _("_Preferences");
-      action: "app.preferences";
-    }
-
-    item {
-      label: _("_Keyboard Shortcuts");
-      action: "win.show-help-overlay";
-    }
-
-    item {
-      label: _("_About Wazam");
-      action: "app.about";
-    }
-  }
-}
-
 template $ExampleApplicationWindow: Adw.ApplicationWindow {
+title:"Shamam";
+Box{
+    orientation: vertical;
   Stack stack {
     name: "stack";
 
@@ -141,5 +125,6 @@ template $ExampleApplicationWindow: Adw.ApplicationWindow {
       };
     }
   }
+}
 }
 
