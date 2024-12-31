@@ -133,7 +133,7 @@ impl ExampleApplication {
     }
 
     pub fn run(&self) -> glib::ExitCode {
-        info!("Wazam ({})", APP_ID);
+        info!("Shamam ({})", APP_ID);
         info!("Version: {} ({})", VERSION, PROFILE);
         info!("Datadir: {}", PKGDATADIR);
 

@@ -6,5 +6,5 @@ option(
     'development'
   ],
   value: 'default',
-  description: 'The build profile for Wazam. One of "default" or "development".'
+  description: 'The build profile for Shamam. One of "default" or "development".'
 )

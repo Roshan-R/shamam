@@ -40,7 +40,7 @@ fn main() -> glib::ExitCode {
     gettextrs::bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
     gettextrs::textdomain(GETTEXT_PACKAGE);
 
-    glib::set_application_name(&gettext("Wazam"));
+    glib::set_application_name(&gettext("Shamam"));
 
     let res = gio::Resource::load(RESOURCES_FILE).expect("Could not load gresource file");
     gio::resources_register(&res);
