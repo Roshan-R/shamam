@@ -23,7 +23,7 @@ mod imp {
     impl ObjectSubclass for ExampleApplication {
         const NAME: &'static str = "ExampleApplication";
         type Type = super::ExampleApplication;
-        type ParentType = adw::Application;
+        type ParentType = gtk::Application;
     }
 
     impl ObjectImpl for ExampleApplication {}
@@ -57,7 +57,6 @@ mod imp {
             gtk::Window::set_default_icon_name(APP_ID);
 
             app.setup_css();
-            app.setup_gactions();
             app.setup_accels();
         }
     }
@@ -77,24 +76,6 @@ impl ExampleApplication {
         self.imp().window.get().unwrap().upgrade().unwrap()
     }
 
-    fn setup_gactions(&self) {
-        // Quit
-        let action_quit = gio::ActionEntry::builder("quit")
-            .activate(move |app: &Self, _, _| {
-                // This is needed to trigger the delete event and saving the window state
-                app.main_window().close();
-                app.quit();
-            })
-            .build();
-
-        // About
-        let action_about = gio::ActionEntry::builder("about")
-            .activate(|app: &Self, _, _| {
-                app.show_about_dialog();
-            })
-            .build();
-        self.add_action_entries([action_quit, action_about]);
-    }
 
     // Sets up keyboard shortcuts
     fn setup_accels(&self) {
@@ -114,23 +95,6 @@ impl ExampleApplication {
         }
     }
 
-    fn show_about_dialog(&self) {
-        let dialog = gtk::AboutDialog::builder()
-            .logo_icon_name(APP_ID)
-            // Insert your license of choice here
-            // .license_type(gtk::License::MitX11)
-            // Insert your website here
-            // .website("https://gitlab.gnome.org/bilelmoussaoui/shamam/")
-            .version(VERSION)
-            .transient_for(&self.main_window())
-            .translator_credits(gettext("translator-credits"))
-            .modal(true)
-            .authors(vec!["Roshan R Chandar"])
-            .artists(vec!["Roshan R Chandar"])
-            .build();
-
-        dialog.present();
-    }
 
     pub fn run(&self) -> glib::ExitCode {
         info!("Shamam ({})", APP_ID);
